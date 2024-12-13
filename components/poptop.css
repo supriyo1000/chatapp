@@ -1,0 +1,46 @@
+.pop-top {
+    position: relative;
+    display: inline-block;
+    /* Ensures relative positioning for the tooltip */
+}
+
+.pop-top span {
+    position: absolute;
+    background-color: #30305a;
+    color: white;
+    /* Text color for better contrast */
+    white-space: nowrap;
+    padding: .5rem 1rem;
+    border-radius: 6px;
+    top: -50px;
+    /* Position above the element */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Center the popup horizontally */
+    transform-origin: bottom center;
+    opacity: 0;
+    visibility: hidden;
+    /* Hidden by default */
+    transition: opacity 0.15s ease, visibility 0.15s ease;
+
+    /* Tooltip Arrow */
+    &:before {
+        content: "";
+        display: block;
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        background-color: #30305a;
+        left: 50%;
+        /* top: 100%; */
+        bottom: -5px;
+        transform: translateX(-50%) rotate(45deg);
+        border-radius: 3px;
+    }
+}
+
+/* Tooltip visibility on hover */
+.pop-top:hover span {
+    opacity: 1;
+    visibility: visible;
+}
